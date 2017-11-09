@@ -8,21 +8,21 @@ version '1.0-SNAPSHOT'
     id 'com.github.kt3k.coveralls' version '2.8.2'
 }*/
 
-apply plugin: 'jacoco'
+apply plugin: "jacoco"
 
 //cobertura.coverageFormats = ['html', 'xml'] // coveralls plugin depends on xml format report
-repositories {
+/*repositories {
     jcenter()
-}
+}*/
 jacoco {
-    toolVersion = '0.7.1.201405082137'
+    toolVersion = "0.7.9"
 }
 
 jacocoTestReport {
     reports {
-        xml.enabled = true // coveralls plugin depends on xml format report
-        html.enabled = true
-        csv.enabled = false
+        xml.enabled true // coveralls plugin depends on xml format report
+        html.enabled true
+        csv.enabled false
     }
 }
 
