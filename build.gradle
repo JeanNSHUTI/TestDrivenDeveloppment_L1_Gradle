@@ -1,24 +1,32 @@
-plugins {
+version '1.0-SNAPSHOT'
+/*plugins {
     //id 'idea'
     //id 'jacoco'
     //id 'com.github.kt3k.coveralls' version '2.6.3'
     id 'java'
     id 'net.saliman.cobertura' version '2.3.1'
     id 'com.github.kt3k.coveralls' version '2.8.2'
+}*/
+
+apply plugin: 'jacoco'
+
+//cobertura.coverageFormats = ['html', 'xml'] // coveralls plugin depends on xml format report
+repositories {
+    jcenter()
+}
+jacoco {
+    toolVersion = '0.7.1.201405082137'
 }
 
-cobertura.coverageFormats = ['html', 'xml'] // coveralls plugin depends on xml format report
+jacocoTestReport {
+    reports {
+        xml.enabled = true // coveralls plugin depends on xml format report
+        html.enabled = true
+        csv.enabled = false
+    }
+}
 
-//jacocoTestReport {
-    //reports {
-        //xml.enabled = true // coveralls plugin depends on xml format report
-        //html.enabled = true
-        //csv.enabled = false
-    //}
-//}
-
-//apply plugin: 'java'
-version '1.0-SNAPSHOT'
+apply plugin: 'java'
 
 sourceCompatibility = 1.8
 
